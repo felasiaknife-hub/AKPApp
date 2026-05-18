@@ -1,0 +1,3 @@
+VBGROUP 5.0
+Project=..\MD5Crypt\MD5Crypt.vbp
+StartupProject=..\BWG_WasteData\WasteDataForm.vbp

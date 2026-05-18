@@ -1,0 +1,581 @@
+VERSION 5.00
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCTL.OCX"
+Object = "{00025600-0000-0000-C000-000000000046}#5.2#0"; "Crystl32.OCX"
+Begin VB.Form frmeDeptorList 
+   BackColor       =   &H00FFFFFF&
+   Caption         =   "คิวรายการเจ้าหนี้ (AP) - F001"
+   ClientHeight    =   9420
+   ClientLeft      =   60
+   ClientTop       =   345
+   ClientWidth     =   9720
+   ForeColor       =   &H00808080&
+   KeyPreview      =   -1  'True
+   LinkTopic       =   "Form1"
+   LockControls    =   -1  'True
+   MDIChild        =   -1  'True
+   ScaleHeight     =   9420
+   ScaleWidth      =   9720
+   WindowState     =   2  'Maximized
+   Begin VB.Timer Timer1 
+      Interval        =   10000
+      Left            =   4260
+      Top             =   4230
+   End
+   Begin VB.PictureBox Picture1 
+      Align           =   3  'Align Left
+      Appearance      =   0  'Flat
+      BackColor       =   &H80000005&
+      ForeColor       =   &H80000008&
+      Height          =   9420
+      Left            =   0
+      ScaleHeight     =   9390
+      ScaleWidth      =   2355
+      TabIndex        =   5
+      Top             =   0
+      Width           =   2385
+      Begin VB.CommandButton Command4 
+         Caption         =   "-"
+         Height          =   255
+         Left            =   660
+         TabIndex        =   18
+         Top             =   2550
+         Width           =   555
+      End
+      Begin VB.CommandButton Command3 
+         Caption         =   "+"
+         Height          =   255
+         Left            =   90
+         TabIndex        =   17
+         Top             =   2550
+         Width           =   555
+      End
+      Begin VB.CommandButton Command1 
+         Caption         =   "ทำรายการชำระเงิน"
+         Height          =   435
+         Left            =   60
+         TabIndex        =   16
+         Top             =   4320
+         Width           =   2205
+      End
+      Begin VB.TextBox txtKey2 
+         Appearance      =   0  'Flat
+         Height          =   285
+         Left            =   180
+         TabIndex        =   14
+         Text            =   "*"
+         Top             =   420
+         Width           =   1995
+      End
+      Begin WasteManagment.ctlDate dtFrom 
+         Height          =   315
+         Left            =   210
+         TabIndex        =   12
+         Top             =   1410
+         Width           =   1755
+         _ExtentX        =   3096
+         _ExtentY        =   556
+         BackColor       =   -2147483633
+      End
+      Begin VB.CommandButton cmdViewJobBill 
+         Caption         =   "ดูข้อมูลใบ Menifest"
+         Height          =   435
+         Left            =   60
+         TabIndex        =   2
+         Top             =   3870
+         Width           =   2205
+      End
+      Begin VB.CommandButton cmdClose 
+         Caption         =   "ปิด"
+         Height          =   435
+         Left            =   60
+         TabIndex        =   3
+         Top             =   4770
+         Width           =   2205
+      End
+      Begin VB.CommandButton cmdSearch 
+         Caption         =   "ค้นหา"
+         Height          =   435
+         Left            =   60
+         TabIndex        =   1
+         Top             =   3420
+         Width           =   2205
+      End
+      Begin VB.ComboBox cboJobStatus 
+         Height          =   315
+         ItemData        =   "feDeptorList.frx":0000
+         Left            =   180
+         List            =   "feDeptorList.frx":0002
+         Style           =   2  'Dropdown List
+         TabIndex        =   0
+         Top             =   780
+         Width           =   2025
+      End
+      Begin WasteManagment.ctlDate dtTo 
+         Height          =   315
+         Left            =   210
+         TabIndex        =   13
+         Top             =   2070
+         Width           =   1755
+         _ExtentX        =   3096
+         _ExtentY        =   556
+         BackColor       =   -2147483633
+      End
+      Begin VB.Line Line1 
+         X1              =   90
+         X2              =   2220
+         Y1              =   2520
+         Y2              =   2520
+      End
+      Begin VB.Label Label2 
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "Menifest,Vendor, ทะเบียนรถ:"
+         Height          =   195
+         Index           =   1
+         Left            =   150
+         TabIndex        =   15
+         Top             =   180
+         Width           =   2100
+      End
+      Begin VB.Label lbCancel 
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "ยกเลิก"
+         ForeColor       =   &H00C0C0C0&
+         Height          =   195
+         Left            =   390
+         TabIndex        =   11
+         Top             =   6030
+         Width           =   480
+      End
+      Begin VB.Label lbClosed 
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "ทำจ่ายแล้ว"
+         ForeColor       =   &H000080FF&
+         Height          =   195
+         Left            =   390
+         TabIndex        =   10
+         Top             =   5730
+         Width           =   750
+      End
+      Begin VB.Label lbOpen 
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "รอจ่าย"
+         ForeColor       =   &H00FF0000&
+         Height          =   195
+         Left            =   390
+         TabIndex        =   9
+         Top             =   5430
+         Width           =   450
+      End
+      Begin VB.Shape Shape1 
+         FillColor       =   &H00C0C0C0&
+         FillStyle       =   0  'Solid
+         Height          =   225
+         Index           =   4
+         Left            =   120
+         Top             =   6000
+         Width           =   195
+      End
+      Begin VB.Shape Shape1 
+         FillColor       =   &H000080FF&
+         FillStyle       =   0  'Solid
+         Height          =   225
+         Index           =   2
+         Left            =   120
+         Top             =   5700
+         Width           =   195
+      End
+      Begin VB.Shape Shape1 
+         FillColor       =   &H00FF0000&
+         FillStyle       =   0  'Solid
+         Height          =   225
+         Index           =   0
+         Left            =   120
+         Top             =   5400
+         Width           =   195
+      End
+      Begin VB.Label Label2 
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "ถึงวันที่"
+         Height          =   195
+         Index           =   4
+         Left            =   180
+         TabIndex        =   8
+         Top             =   1830
+         Width           =   495
+      End
+      Begin VB.Label Label2 
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "วันที่ปฏิบัติงานตั้งแต่"
+         Height          =   195
+         Index           =   3
+         Left            =   180
+         TabIndex        =   7
+         Top             =   1170
+         Width           =   1410
+      End
+   End
+   Begin MSComctlLib.ListView lvResult 
+      Height          =   2595
+      Left            =   2370
+      TabIndex        =   4
+      Top             =   0
+      Width           =   6915
+      _ExtentX        =   12197
+      _ExtentY        =   4577
+      View            =   3
+      LabelEdit       =   1
+      Sorted          =   -1  'True
+      LabelWrap       =   -1  'True
+      HideSelection   =   0   'False
+      Checkboxes      =   -1  'True
+      FullRowSelect   =   -1  'True
+      _Version        =   393217
+      SmallIcons      =   "ImageList1"
+      ForeColor       =   -2147483640
+      BackColor       =   -2147483643
+      BorderStyle     =   1
+      Appearance      =   0
+      NumItems        =   11
+      BeginProperty ColumnHeader(1) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+         Text            =   "วันที่ขน"
+         Object.Width           =   2469
+      EndProperty
+      BeginProperty ColumnHeader(2) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+         SubItemIndex    =   1
+         Text            =   "Menifest No"
+         Object.Width           =   2036
+      EndProperty
+      BeginProperty ColumnHeader(3) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+         SubItemIndex    =   2
+         Text            =   "Vendor ที่ขน"
+         Object.Width           =   2884
+      EndProperty
+      BeginProperty ColumnHeader(4) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+         SubItemIndex    =   3
+         Text            =   "รถที่ใช้ขน"
+         Object.Width           =   2618
+      EndProperty
+      BeginProperty ColumnHeader(5) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+         SubItemIndex    =   4
+         Text            =   "เลขทะเบียน"
+         Object.Width           =   2540
+      EndProperty
+      BeginProperty ColumnHeader(6) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+         SubItemIndex    =   5
+         Text            =   "สถานที่ขน"
+         Object.Width           =   2540
+      EndProperty
+      BeginProperty ColumnHeader(7) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+         SubItemIndex    =   6
+         Text            =   "ค่าขนส่ง"
+         Object.Width           =   1984
+      EndProperty
+      BeginProperty ColumnHeader(8) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+         SubItemIndex    =   7
+         Text            =   "จำนวนคนงาน"
+         Object.Width           =   2117
+      EndProperty
+      BeginProperty ColumnHeader(9) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+         SubItemIndex    =   8
+         Text            =   "ค่าแรง"
+         Object.Width           =   2540
+      EndProperty
+      BeginProperty ColumnHeader(10) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+         SubItemIndex    =   9
+         Text            =   "รวมเงิน"
+         Object.Width           =   2540
+      EndProperty
+      BeginProperty ColumnHeader(11) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+         SubItemIndex    =   10
+         Text            =   "สถานะ"
+         Object.Width           =   2540
+      EndProperty
+   End
+   Begin Crystal.CrystalReport rpt1 
+      Left            =   0
+      Top             =   0
+      _ExtentX        =   741
+      _ExtentY        =   741
+      _Version        =   348160
+      WindowState     =   2
+      PrintFileLinesPerPage=   60
+      WindowShowPrintSetupBtn=   -1  'True
+   End
+   Begin VB.Label Label2 
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "ชื่อรุ่น,ลาย หรือยี่ห้อ :"
+      Height          =   195
+      Index           =   0
+      Left            =   150
+      TabIndex        =   6
+      Top             =   4950
+      Width           =   1440
+   End
+End
+Attribute VB_Name = "frmeDeptorList"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Option Explicit
+Dim curCondition_ As String
+
+Private Sub cmdClose_Click()
+    Unload Me
+End Sub
+
+Private Sub cmdSearch_Click()
+    SearchQue
+    If lvResult.ListItems.Count = 0 Then MsgBox "ไม่พบข้อมูลที่ต้องการค้นหา", vbExclamation
+End Sub
+
+Private Sub cmdViewJobBill_Click()
+Dim tmpS As New BWGSearchManager
+Dim tmpCol As Collection
+Dim tmpStr As String
+    tmpStr = CurrentUser.VerifyAccessRole("frmMenifest", AccessRole)
+    If Trim(tmpStr) <> "" Then
+        MsgBox tmpStr, vbExclamation
+        Exit Sub
+    End If
+    
+    If lvResult.SelectedItem Is Nothing Then Exit Sub
+    Set tmpCol = tmpS.MenifestSearch("MenifestID=" & lvResult.SelectedItem.Key)
+    If tmpCol.Count > 0 Then
+        Load frmMenifest
+        frmMenifest.SetDataMenifest tmpCol(1)
+        frmMenifest.Show 1
+    End If
+        Set tmpCol = Nothing
+        Set tmpS = Nothing
+
+End Sub
+
+Private Sub Command1_Click()
+Dim x%, iCount%
+    If lvResult.ListItems.Count = 0 Then
+        MsgBox "ไม่มีรายการใบ Menifest ที่ต้องการพิมพ์", vbExclamation
+        Exit Sub
+    End If
+    For x = 1 To lvResult.ListItems.Count
+        If lvResult.ListItems(x).Checked Then
+            iCount = iCount + 1
+        End If
+    Next
+    If iCount = 0 Then
+        MsgBox "กรุณาเลือกรายการใบ Menifest ที่ต้องการพิมพ์", vbExclamation
+        Exit Sub
+    End If
+    
+    MsgBox "เสร็จสิ้นการพิมพ์ใบ Menifest แล้วจำนวน " & iCount & " รายการ"
+End Sub
+
+Private Sub Command2_Click()
+Dim x%, iCount%
+    If lvResult.ListItems.Count = 0 Then
+        MsgBox "ไม่มีรายการใบ Menifest ที่ต้องการพิมพ์", vbExclamation
+        Exit Sub
+    End If
+    For x = 1 To lvResult.ListItems.Count
+        If lvResult.ListItems(x).Checked Then
+            iCount = iCount + 1
+        End If
+    Next
+    If iCount = 0 Then
+        MsgBox "กรุณาเลือกรายการใบ Menifest ที่ต้องการพิมพ์", vbExclamation
+        Exit Sub
+    End If
+    
+    MsgBox "เสร็จสิ้นการพิมพ์ใบคุมแล้วจำนวน " & iCount & " รายการ"
+
+End Sub
+
+Private Sub Command3_Click()
+Dim x%
+    For x = 1 To lvResult.ListItems.Count
+        lvResult.ListItems(x).Checked = True
+    Next
+End Sub
+
+Private Sub Command4_Click()
+Dim x%
+    For x = 1 To lvResult.ListItems.Count
+        lvResult.ListItems(x).Checked = False
+    Next
+End Sub
+
+Private Sub Form_KeyPress(KeyAscii As Integer)
+    If KeyAscii = 13 Then KeyAscii = 0
+End Sub
+
+Private Sub Form_Load()
+On Error GoTo ErrD
+Dim tmpRec As New ADODB.Recordset
+Dim backDate As String
+Dim tmpY As Integer, tmpM As Integer, tmpD As Integer
+Dim tmpArr
+Dim sqlStr As String
+    CanAccess = False: CanUpdate = False
+    SetPermission Me, CanAccess, CanUpdate
+    If CanAccess = False Then
+        MsgBox "ท่านไม่มีสิทธิใช้ระบบนี้", vbExclamation, "Warning"
+        Unload Me
+    End If
+    
+    sqlStr = "select backdate=convert(varchar(10),getdate()-7,111)"
+    Set tmpRec = GetRS(sqlStr, adOpenForwardOnly, adLockReadOnly)
+    If tmpRec Is Nothing Then backDate = "0"
+    backDate = Trim("" & tmpRec("BackDate"))
+    tmpRec.Close
+    If IsDate(backDate) Then
+        tmpArr = Split(backDate, "/")
+        If CInt(tmpArr(0)) < 2500 Then
+            dtFrom.ValueYMD = Trim("" & (CInt(tmpArr(0) + 543))) & "/" & Trim("" & tmpArr(1)) & "/" & Trim("" & tmpArr(2))
+        Else
+            dtFrom.ValueYMD = backDate
+        End If
+    End If
+    Set tmpRec = Nothing
+    With cboJobStatus
+        .AddItem "== ทุกสถานะ =="
+        .AddItem "รอจ่าย"
+        .AddItem "ทำจ่ายแล้ว"
+        .AddItem "ยกเลิก"
+        .ListIndex = 0
+    End With
+    Exit Sub
+ErrD:
+    GetMsg "", vbCritical
+    Exit Sub
+End Sub
+
+Private Sub Form_Resize()
+On Error Resume Next
+    With lvResult
+        If Me.Width - Picture1.Width > 500 Then
+            .Width = Me.Width - Picture1.Width - 100
+        End If
+        .Height = Me.Height - .Top - 410
+    End With
+End Sub
+
+Private Sub Form_Unload(Cancel As Integer)
+    VisibleImage
+End Sub
+
+Private Sub lvResult_ColumnClick(ByVal ColumnHeader As MSComctlLib.ColumnHeader)
+    lvResult.SortKey = ColumnHeader.Index - 1
+    If lvResult.SortOrder = lvwAscending Then
+        lvResult.SortOrder = lvwDescending
+    Else
+        lvResult.SortOrder = lvwAscending
+    End If
+End Sub
+
+Private Sub lvResult_DblClick()
+On Error Resume Next
+Dim tmpS As New BWGSearchManager
+Dim tmpCol As Collection
+    If lvResult.SelectedItem Is Nothing Then Exit Sub
+    Set tmpCol = tmpS.TransportVenderSearch
+    If tmpCol.Count > 0 Then
+        Load frmPaytoDeptor
+        frmPaytoDeptor.SetDataTransportVender tmpCol(1)
+        frmPaytoDeptor.Show 1
+    End If
+        Set tmpCol = Nothing
+        Set tmpS = Nothing
+End Sub
+
+Private Sub Timer1_Timer()
+    'SearchQue
+End Sub
+
+Private Sub SearchQue()
+On Error GoTo ErrD
+Dim tmpRec As New ADODB.Recordset
+Dim tmpList As ListItem
+Dim x As Long, Y As Long
+Dim sqlStr As String, strCond As String, StatusDesc As String
+Dim tmpArr
+Dim curColor
+Dim subStr As String
+    sqlStr = "Select MenifestID,DocNo,MenifestNo,CustomerName,SubTypeDesc,TruckTypeDesc,TransportName1,TransportName2,WorkDate,isClosed,isCanceled,isPrinted,DriverName From vw_MenifestQue "
+    'strCond = " WHERE (WorkDate>='" & dtFrom.ValueYMD & "' And WorkDate<='" & dtTo.ValueYMD & "') And (isClosed='Y' and (isCanceled<>'Y' Or isCanceled is null)) "
+    strCond = " WHERE (WorkDate>='" & dtFrom.ValueYMD & "' And WorkDate<='" & dtTo.ValueYMD & "') And MenifestNo<>'' "
+    If Trim(txtKey2.Text) <> "" And Replace(Trim(txtKey2.Text), "*", "") <> "" Then
+        strCond = strCond & " And (TransportName1 Like '%" & Replace(Trim(txtKey2.Text), "*", "%") & "%' Or TransportName2 Like '%" & Replace(Trim(txtKey2.Text), "*", "%") & "%' Or DriverName Like '%" & Replace(Trim(txtKey2.Text), "*", "%") & "%' Or CarRegisID Like '%" & Replace(Trim(txtKey2.Text), "*", "%") & "%')"
+    End If
+    Select Case cboJobStatus.ListIndex
+        Case 1 'งานใหม่
+            subStr = " ((isPrinted<>'Y' Or isPrinted is null) and (isCanceled<>'Y' Or isCanceled is null)) and (isClosed<>'Y' Or isClosed is null)) "
+        Case 2 'พิมพ์ Menifest แล้ว
+            subStr = " (isPrinted='Y' and (isCanceled<>'Y' Or isCanceled is null) and (isClosed<>'Y' Or isClosed is null)) "
+        Case 3 'ปิดงาน
+            subStr = " (isClosed='Y' and (isCanceled<>'Y' Or isCanceled is null)) "
+        Case 4 'ยกเลิก
+            subStr = " (isCanceled='Y') "
+    End Select
+    If cboJobStatus.ListIndex > 0 Then
+        If InStr(1, UCase(strCond), "WHERE") > 0 Then
+            strCond = strCond & " And " & subStr
+        Else
+            strCond = strCond & " WHERE " & subStr
+        End If
+    End If
+    curCondition_ = strCond
+    Screen.MousePointer = 11
+    Set tmpRec = GetRS(sqlStr & strCond & " ORDER BY MenifestNo", adOpenForwardOnly, adLockReadOnly)
+    If tmpRec Is Nothing Then
+        Screen.MousePointer = 0
+        frmMain.Stb1.Panels(1).Text = "พบข้อมูล 0 รายการ  จำนวน 0 เที่ยว"
+        Exit Sub
+    End If
+    lvResult.ListItems.Clear
+    If tmpRec.EOF = False Then
+        tmpArr = tmpRec.GetRows
+        For x = 0 To UBound(tmpArr, 2)
+            Set tmpList = lvResult.ListItems.Add(, "'" & tmpArr(0, x) & "'", "" & tmpArr(2, x))
+            If Trim("" & tmpArr(11, x)) <> "Y" And Trim("" & tmpArr(10, x)) <> "Y" And Trim("" & tmpArr(9, x)) <> "Y" Then
+                curColor = lbOpen.ForeColor
+                StatusDesc = lbOpen.Caption
+            ElseIf Trim("" & tmpArr(9, x)) = "Y" And Trim("" & tmpArr(10, x)) <> "Y" Then
+                curColor = lbClosed.ForeColor
+                StatusDesc = lbClosed.Caption
+            ElseIf Trim("" & tmpArr(10, x)) = "Y" Then
+                curColor = lbCancel.ForeColor
+                StatusDesc = lbCancel.Caption
+            End If
+            tmpList.ForeColor = curColor
+            tmpList.SubItems(1) = Trim("" & tmpArr(3, x))
+            tmpList.SubItems(2) = " "
+            tmpList.SubItems(3) = Trim("" & tmpArr(5, x)) & ", " & Trim("" & tmpArr(4, x))
+            tmpList.SubItems(4) = Trim("" & tmpArr(7, x))
+            tmpList.SubItems(5) = Trim("" & tmpArr(12, x))
+            tmpList.SubItems(6) = FormatYMD_to_DMY(Trim("" & tmpArr(8, x)), "/", "/")
+            tmpList.SubItems(7) = StatusDesc
+            For Y = 1 To tmpList.ListSubItems.Count
+                tmpList.ListSubItems(Y).ForeColor = curColor
+            Next
+            Set tmpList = Nothing
+            'DoEvents
+        Next
+        Erase tmpArr
+    End If
+    Screen.MousePointer = 0
+    frmMain.Stb1.Panels(1).Text = "พบข้อมูล " & Format(tmpRec.RecordCount, "#,##0") & " รายการ"
+    tmpRec.Close
+    Set tmpRec = Nothing
+    Exit Sub
+ErrD:
+    Screen.MousePointer = 0
+    GetMsg "", vbCritical
+    Exit Sub
+End Sub

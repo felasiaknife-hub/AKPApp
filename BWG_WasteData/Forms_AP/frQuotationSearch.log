@@ -1,0 +1,6 @@
+Line 17: Class BWG_Waste.ctlDate of control dtFrom was not a loaded control class.
+Line 103: Class BWG_Waste.ctlDate of control dtTo was not a loaded control class.
+Line 23: The property name _ExtentX in dtFrom is invalid.
+Line 24: The property name _ExtentY in dtFrom is invalid.
+Line 109: The property name _ExtentX in dtTo is invalid.
+Line 110: The property name _ExtentY in dtTo is invalid.

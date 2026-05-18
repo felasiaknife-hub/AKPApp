@@ -1,0 +1,16 @@
+Line 13: Class MSComCtl2.DTPicker of control dtInput was not a loaded control class.
+Line 48: Class MSFlexGridLib.MSFlexGrid of control fgGrid was not a loaded control class.
+Line 21: The property name _ExtentX in dtInput is invalid.
+Line 22: The property name _ExtentY in dtInput is invalid.
+Line 23: The property name _Version in dtInput is invalid.
+Line 24: The property name CustomFormat in dtInput is invalid.
+Line 25: The property name Format in dtInput is invalid.
+Line 26: The property name CurrentDate in dtInput is invalid.
+Line 54: The property name _ExtentX in fgGrid is invalid.
+Line 55: The property name _ExtentY in fgGrid is invalid.
+Line 56: The property name _Version in fgGrid is invalid.
+Line 57: The property name Cols in fgGrid is invalid.
+Line 58: The property name FixedCols in fgGrid is invalid.
+Line 59: The property name RowHeightMin in fgGrid is invalid.
+Line 60: The property name BackColorBkg in fgGrid is invalid.
+Line 61: The property name AllowUserResizing in fgGrid is invalid.

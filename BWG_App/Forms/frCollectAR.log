@@ -1,0 +1,7 @@
+Line 180: Class WasteManagment.ctlDate of control dtBilldate was not a loaded control class.
+Line 207: Class Crystal.CrystalReport of control rpt1 was not a loaded control class.
+Line 301: Class WasteManagment.ctlDate of control dtDueDate was not a loaded control class.
+Line 322: Class WasteManagment.ctlGrid of control grMenifest was not a loaded control class.
+Line 343: Class WasteManagment.ctlGrid of control grItem was not a loaded control class.
+Line 364: Class MSComctlLib.ListView of control lvTrip was not a loaded control class.
+Line 401: Class WasteManagment.ctlDate of control ctlDatepast was not a loaded control class.

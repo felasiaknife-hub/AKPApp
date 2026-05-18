@@ -1,0 +1,163 @@
+Option Explicit
+
+Dim id_ As String
+Dim DocNo_  As String
+Dim menifestNo_  As String
+Dim workDate_  As String
+Dim isCanceled_  As String
+Dim customerName_ As String
+Dim companyNameTH_ As String
+Dim salefname_  As String
+Dim salelname_  As String
+Dim BillingNo_ As Double
+Dim issuedDate_ As String
+Dim printInvID_  As String
+Dim reNo_  As String
+Dim reDate_  As Double
+Dim isCancel_ As String
+Dim status_ As String
+Public Property Get ID() As String
+    ID = id_
+End Property
+Public Property Let ID(ByVal newval As String)
+    id_ = Trim(newval)
+End Property
+Public Property Get DocNo(ByVal newval As String)
+        DocNo = DocNo_
+End Property
+Public Property Let DocNo(ByVal newval As String)
+    If Trim(DocNo_) <> Trim(newval) Then
+        DocNo_ = Trim(newval)
+    End If
+End Property
+Public Property Get MenifestNo(ByVal newval As String)
+    MenifestNo = menifestNo_
+End Property
+Public Property Let MenifestNo(ByVal newval As String)
+    If Trim(menifestNo_) <> Trim(newval) Then
+        menifestNo_ = Trim(newval)
+    End If
+End Property
+Public Property Get WorkDate(ByVal newval As String)
+    WorkDate = workDate_
+End Property
+Public Property Let WorkDate(ByVal newval As String)
+    If Trim(workDate_) <> Trim(newval) Then
+        workDate_ = Trim(newval)
+    End If
+End Property
+Public Property Get IsCanceled(ByVal newval As String)
+    IsCanceled = isCanceled_
+End Property
+Public Property Let IsCanceled(ByVal newval As String)
+    If Trim(isCanceled_) <> Trim(newval) Then
+        isCanceled_ = Trim(newval)
+    End If
+End Property
+Public Property Get CustomerName(ByVal newval As String)
+    CustomerName = customerName_
+End Property
+Public Property Let CustomerName(ByVal newval As String)
+    If Trim(customerName_) <> Trim(newval) Then
+        customerName_ = Trim(newval)
+    End If
+End Property
+Public Property Get CompanyNameTH(ByVal newval As String)
+    CompanyName = companyNameTH_
+End Property
+Public Property Let CompanyNameTH(ByVal newval As String)
+    If Trim(companyNameTH_) <> Trim(newval) Then
+        companyNameTH_ = Trim(newval)
+    End If
+End Property
+Public Property Get SaleFName(ByVal newval As String)
+    SaleFName = salefname_
+End Property
+Public Property Let SaleFName(ByVal newval As String)
+    If Trim(salefname_) <> Trim(newval) Then
+        salefname_ = Trim(newval)
+    End If
+End Property
+Public Property Get SaleLName(ByVal newval As String)
+    SaleLName = salelname_
+End Property
+Public Property Let SaleLName(ByVal newval As String)
+    If Trim(salelname_) <> Trim(newval) Then
+        salelname_ = Trim(newval)
+    End If
+End Property
+Public Property Get BillingNo(ByVal newval As String)
+    BillingNo = BillingNo_
+End Property
+Public Property Let BillingNo(ByVal newval As String)
+    If Trim(BillingNo_) <> Trim(newval) Then
+        BillingNo_ = Trim(newval)
+    End If
+End Property
+Public Property Get IssuedDate(ByVal newval As String)
+    IssuedDate = issuedDate_
+End Property
+Public Property Let IssuedDate(ByVal newval As String)
+    If Trim(issuedDate_) <> Trim(newval) Then
+        issuedDate_ = Trim(newval)
+    End If
+End Property
+Public Property Get PrintInvID(ByVal newval As String)
+    PrintInvID = printInvID_
+End Property
+Public Property Let PrintInvID(ByVal newval As String)
+    If Trim(printInvID_) <> Trim(newval) Then
+        printInvID_ = Trim(newval)
+    End If
+End Property
+Public Property Get ReNo(ByVal newval As String)
+    ReNo = reNo_
+End Property
+Public Property Let ReNo(ByVal newval As String)
+    If Trim(reNo_) <> Trim(newval) Then
+        reNo_ = Trim(newval)
+    End If
+End Property
+Public Property Get ReDate(ByVal newval As String)
+    ReDate = reDate_
+End Property
+Public Property Let ReDate(ByVal newval As String)
+    If Trim(reDate_) <> Trim(newval) Then
+        reDate_ = Trim(newval)
+    End If
+End Property
+Public Property Get IsCancel(ByVal newval As String)
+    IsCancel = isCancel_
+End Property
+Public Property Let IsCancel(ByVal newval As String)
+    If Trim(isCancel_) <> Trim(newval) Then
+        isCancel_ = Trim(newval)
+    End If
+End Property
+Public Property Get Status(ByVal newval As String)
+    Status = status_
+End Property
+Public Property Let Status(ByVal newval As String)
+    If Trim(status_) <> Trim(newval) Then
+        status_ = Trim(newval)
+    End If
+End Property
+
+Public Sub SetDataFromRecordset(selRec As ADODB.Recordset)
+    id_ = Trim("" & selRec("MenifestID"))
+    DocNo_ = Trim("" & selRec("DocNo"))
+    menifestNo_ = Trim("" & selRec("MenifestNo"))
+    workDate_ = Trim("" & selRec("WorkDate"))
+    isCanceled_ = Trim("" & selRec("isCanceled"))
+    customerName_ = Trim("" & selRec("CustomerName"))
+    companyNameTH_ = Trim("" & selRec("CompanyNameTH"))
+    salefname_ = Trim("" & selRec("SaleFName"))
+    salelname_ = Trim("" & selRec("SaleLName"))
+    BillingNo_ = Trim("" & selRec("BillingNo"))
+    issuedDate_ = Trim("" & selRec("IssuedDate"))
+    printInvID_ = Trim("" & selRec("PrintInvID"))
+    reNo_ = Trim("" & selRec("ReNo"))
+    reDate_ = Trim("" & selRec("REDate"))
+    isCancel_ = Trim("" & selRec("isCancel"))
+    status_ = Trim("" & selRec("Status"))
+End Sub

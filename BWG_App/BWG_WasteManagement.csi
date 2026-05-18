@@ -1,0 +1,13 @@
+[History]
+1=#P0#=mb	#P1#=GenerateMenifest	#P2#=WasteManagment/BWGJobData/GenerateMenifest	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20230529152043	#P7#=0	#P8#=108	.
+2=#P0#=mb	#P1#=cmdMenifest_Click	#P2#=WasteManagment/frmJobCarAssign/cmdMenifest_Click	#P3#=	#P4#=	#P5#=MembEventProcPrivate	#P6#=20230529152021	#P7#=0	#P8#=42	.
+3=#P0#=mb	#P1#=lvResult_DblClick	#P2#=WasteManagment/frmMenifestClosedList/lvResult_DblClick	#P3#=	#P4#=	#P5#=MembEventProcPrivate	#P6#=20230529142523	#P7#=0	#P8#=50	.
+4=#P0#=mb	#P1#=MNU_AutoCalcMF	#P2#=WasteManagment/frmMenifestClosedList/MNU_AutoCalcMF	#P3#=	#P4#=	#P5#=MembEventProcPrivate	#P6#=20230529135405	#P7#=0	#P8#=12	.
+5=#P0#=mb	#P1#=GetCnString	#P2#=WasteManagment/modConfiguration/GetCnString	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20230508092959	#P7#=0	#P8#=31	.
+6=#P0#=mb	#P1#=PopulateReception	#P2#=WasteManagment/modShared/PopulateReception	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20230506160423	#P7#=0	#P8#=0	.
+7=#P0#=mb	#P1#=CalCustChargeFee	#P2#=WasteManagment/frmTripControl/CalCustChargeFee	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20230428164359	#P7#=0	#P8#=6	.
+8=#P0#=mb	#P1#=cmdPrint_Click	#P2#=WasteManagment/frmInvoice/cmdPrint_Click	#P3#=	#P4#=	#P5#=MembEventProcPrivate	#P6#=20230428163419	#P7#=0	#P8#=99	.
+9=#P0#=mb	#P1#=cmdViewTrip_Click	#P2#=WasteManagment/frmMenifest/cmdViewTrip_Click	#P3#=	#P4#=	#P5#=MembEventProcPrivate	#P6#=20230428085440	#P7#=0	#P8#=51	.
+10=#P0#=mb	#P1#=ShowBillingDetail	#P2#=WasteManagment/frmInvoice/ShowBillingDetail	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20230424164758	#P7#=0	#P8#=45	.
+11=#P0#=mb	#P1#=Save	#P2#=WasteManagment/BWGCmmQuoHeader/Save	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20230424164343	#P7#=0	#P8#=0	.
+12=#P0#=mb	#P1#=Save	#P2#=WasteManagment/BWGCustVisitor/Save	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20230405132247	#P7#=0	#P8#=20	.

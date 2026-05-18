@@ -1,0 +1,11 @@
+[History]
+1=#P0#=mb	#P1#=PopulateReception	#P2#=WasteDataForm/modShared/PopulateReception	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20230506155854	#P7#=0	#P8#=0	.
+2=#P0#=mb	#P1#=GetDBConnection	#P2#=WasteDataForm/modDBManager/GetDBConnection	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20230506155425	#P7#=0	#P8#=15	.
+3=#P0#=mb	#P1#=GetCnString	#P2#=WasteDataForm/modConfiguration/GetCnString	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20230506154230	#P7#=0	#P8#=28	.
+4=#P0#=mb	#P1#=GetRS	#P2#=WasteDataForm/modDBManager/GetRS	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20230506105129	#P7#=0	#P8#=15	.
+5=#P0#=mb	#P1#=SetDataWasteData	#P2#=WasteDataForm/frmWasteData/SetDataWasteData	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20230506104348	#P7#=0	#P8#=393	.
+6=#P0#=mb	#P1#=CmdSave_Click	#P2#=WasteDataForm/frmWasteData/CmdSave_Click	#P3#=	#P4#=	#P5#=MembEventProcPrivate	#P6#=20230506104242	#P7#=0	#P8#=200	.
+7=#P0#=mb	#P1#=Save	#P2#=WasteDataForm/BWGWasteDataLAB/Save	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20230506104215	#P7#=0	#P8#=1	.
+8=#P0#=mb	#P1#=cboAnalysis_Click	#P2#=WasteDataForm/frmWasteData/cboAnalysis_Click	#P3#=	#P4#=	#P5#=MembEventProcPrivate	#P6#=20230405165215	#P7#=0	#P8#=7	.
+9=#P0#=mb	#P1#=cboWasteType_Click	#P2#=WasteDataForm/frmWasteData/cboWasteType_Click	#P3#=	#P4#=	#P5#=MembEventProcPrivate	#P6#=20230405162154	#P7#=0	#P8#=25	.
+10=#P0#=mb	#P1#=txtEUCode1_Validate	#P2#=WasteDataForm/frmWasteData/txtEUCode1_Validate	#P3#=	#P4#=	#P5#=MembEventProcPrivate	#P6#=20230330085757	#P7#=0	#P8#=13	.
