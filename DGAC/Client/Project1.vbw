@@ -1,0 +1,7 @@
+frmMain = 176, 216, 926, 667, C, 22, 27, 772, 478, C
+modServerClient = 154, 189, 904, 640, C
+frmAccessing = 88, 108, 838, 559, C, 44, 54, 794, 505, C
+frmClient = 110, 135, 971, 500, C, 66, 81, 816, 532, C
+modFileTransfer = 132, 162, 882, 613, C
+frmSendingFile = 110, 135, 860, 586, C, 88, 108, 838, 559, C
+modCryptor = 110, 135, 860, 586, C

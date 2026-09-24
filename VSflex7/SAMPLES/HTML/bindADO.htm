@@ -1,0 +1,115 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<title></title>
+<SCRIPT ID=clientEventHandlersVBS LANGUAGE=vbscript>
+<!--
+
+Dim g_Conn, g_RS, g_RSBatch
+
+Sub window_onload
+
+  ' initialize grids
+  With fg
+    .FontName = "Verdana"
+    .FontSize = 9
+    .Editable = 2 ' flexEDKbdMouse
+    .BackColorFrozen = &H00E0E0E0&
+    .AllowUserResizing = 1 ' flexResizeColumns
+    .AllowUserFreezing = 3 ' flexFreezeBoth
+    .DataMode = 1 ' fgDMBound
+  End With
+  With fgBatch
+    .FontName = "Verdana"
+    .FontSize = 9
+    .Editable = 2 ' flexEDKbdMouse
+    .BackColorFrozen = &H00E0E0E0&
+    .AllowUserResizing = 1 ' flexResizeColumns
+    .AllowUserFreezing = 3 ' flexFreezeBoth
+    .DataMode = 1 ' fgDMBound
+  End With
+
+  ' open ADO recordset: CUSTOMERS, adLockOptimistic
+  Set g_Conn = CreateObject("ADODB.Connection")
+  g_Conn.Open "NorthWind"
+  Set g_RS = CreateObject("ADODB.Recordset")
+  g_RS.Open "Customers", g_Conn, 1, 3 ' adOpenKeyset, adLockOptimistic
+  g_RS.Requery
+    
+  ' open ADO recordset: EMPLOYEES, adLockBatchOptimistic
+  Set g_RSBatch = CreateObject("ADODB.Recordset")
+  g_RSBatch.Open "Employees", g_Conn, 1, 4 ' adOpenKeyset, adLockBatchOptimistic
+  g_RSBatch.MoveLast
+  g_RSBatch.MoveFirst 
+    
+  ' bind recordsets to grids
+  Set fg.DataSource = g_RS
+  fg.AutoSize 0, fg.Cols - 1
+  fg.FrozenCols = 1 ' freeze CustomerID column
+  Set fgBatch.DataSource = g_RSBatch
+  fgBatch.AutoSize 0, fgBatch.Cols - 1
+  fgBatch.FrozenCols = 1 ' freeze EmployeeID column
+  
+End Sub
+
+Sub btnCancel_onclick
+  g_RSBatch.CancelBatch
+End Sub
+
+Sub btnUpdate_onclick
+  g_RSBatch.UpdateBatch
+End Sub
+
+-->
+</SCRIPT>
+</head>
+
+<body>
+
+<p><font size="5" face="Verdana">VSFlexGrid 7.0 HTML Samples<br>
+<strong>Simple ADO Binding</strong></font></p>
+
+<hr>
+
+<p><font size="2" face="Verdana">This sample shows how you can bind the <strong>VSFlexGrid</strong> 
+ control to ADO recordsets.</font></p>
+
+<p><font size="2" face="Verdana">Note that this sample requires an ODBC data source named
+NorthWind that is connected to the NorthWind database that ships with Visual Basic. The grids below will
+not contain any data unless you create this data source. The
+sample creates ADODB connection and recordset objects, then connects the to the <b>
+VSFlexGrid</b> control using the grid's <b>DataSource</b> property.</font></p>
+
+<p><font size="2" face="Verdana">The top grid is bound to a recordset opened in <b>adLockOptimistic
+</b>mode, so any changes made to the data on the grid are immediately save to the underlying database. The bottom grid is bound to a recordset opened in <b>adLockBatchOptimistic</b><b>
+</b>mode, so changes made to the grid are not reflected
+on the underlying database until the user clicks the <b>Update Database </b>button.</font></p>
+
+<p><font size="2" face="Verdana">Grid 1: <b> CUSTOMERS</b><br>
+Changes made to the grid are immediately saved to the underlying database.<br>
+</font>
+<object classid="clsid:D76D712E-4A96-11D3-BD95-D296DC2DD072" height=184 id=fg style="LEFT: 0px; TOP: 0px" 
+	width=726>
+</object>
+</p>
+
+<p><font size="2" face="Verdana">Grid 2: <b> EMPLOYEES</b><br>
+Changes made to the grid can be applied to the database using the </font>
+<input type="button" value="Update" name="btnUpdate"><font size="2" face="Verdana"><b>
+</b>button or undone using the
+</font>
+<input type="button" value="Cancel" name="btnCancel"> <font size="2" face="Verdana">button.<br>
+</font>
+<object classid="clsid:D76D712E-4A96-11D3-BD95-D296DC2DD072" height=184 id=fgBatch style="LEFT: 0px; TOP: 0px" 
+	width=726>
+</object>
+<br>
+</p>
+
+<p>&nbsp;</p>
+
+</body>
+</html>

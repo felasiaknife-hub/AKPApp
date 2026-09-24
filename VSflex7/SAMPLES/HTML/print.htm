@@ -1,0 +1,146 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<title></title>
+<SCRIPT ID=clientEventHandlersVBS LANGUAGE=vbscript>
+<!--
+
+Sub window_onload
+
+  ' initialize grid
+  fg.FontName = "Verdana"
+  fg.FontSize = 9
+  fg.Editable = 2 ' flexEDKbdMouse
+  Dim x, y
+  For x = 1 To fg.Cols - 1
+    For y = 1 To fg.Rows - 1
+      fg.TextMatrix(y, x) = "r" & y & "c" & x
+    Next
+  Next
+  
+End Sub
+
+' print using built-in method
+Sub cmdPrintDefault_onclick
+  fg.PrintGrid "VSFlexGrid HTML Sample"
+End Sub
+
+' print using VSPrinter control
+Sub cmdPrintVSPrinter_onclick
+
+  ' create preview document
+  vp.DocName = "VSFlexGrid HTML Sample"
+  vp.Header = "VSFlexGrid HTML Sample||%d"
+  vp.StartDoc
+  vp = "Here is the VSFlexGrid printed from an HTML page:"
+  vp.RenderControl = fg.hWnd
+  vp = "That was a VSFlexGrid control printed from an HTML page."
+  vp.EndDoc
+
+  ' send it to the printer (optional)
+  ' vp.PrintDoc
+End Sub
+
+' set zoom level
+Sub cmbZoom_onclick
+  Select Case cmbZoom.selectedIndex 
+    Case 0: ' Whole Page
+      vp.ZoomMode = 3
+    Case 1: ' Page Width
+      vp.ZoomMode = 4
+    Case 2: ' Two Pages
+      vp.ZoomMode = 2
+    Case 3: ' Thumbnail
+      vp.ZoomMode = 1
+    Case 4: ' 100%
+      vp.Zoom = 100
+    Case 5: ' 50%
+      vp.Zoom = 50
+    Case 6: ' 25%
+      vp.Zoom = 25
+	End Select
+End Sub
+
+Sub cmdFirst_onclick
+  vp.PreviewPage = 1
+End Sub
+
+Sub cmdLast_onclick
+  vp.PreviewPage = vp.PageCount 
+End Sub
+
+Sub cmdNext_onclick
+  vp.PreviewPage = vp.PreviewPage + 1
+End Sub
+
+Sub cmdPrevious_onclick
+  vp.PreviewPage = vp.PreviewPage - 1
+End Sub
+
+-->
+</SCRIPT>
+</head>
+
+<body>
+
+<p><font size="5" face="Verdana">VSFlexGrid 7.0 HTML Samples<br>
+<strong>Printing the Grid</strong></font></p>
+
+<hr>
+
+<p><font size="2" face="Verdana">This sample shows how you can print the <strong>VSFlexGrid</strong> 
+using the built-in <b>PrintGrid</b> method or using the <b>VSPrinter </b>control.</font></p>
+
+<p><font size="2" face="Verdana">The <strong>VSFlexGrid</strong>  control
+includes a <b>PrintGrid</b> method that renders the grid on the printer.&nbsp;You
+have control over margins, orientation, and whether to display a printer
+selection dialog to the user. If the grid is large, the report may span several
+pages. If you need more sophisticated and flexible printed output, with
+previewing and the ability to create reports with several grids, text, tables,
+and other elements, then you can use the <b>VSPrinter </b>control (available
+separately from <b>VideoSoft</b>).</font></p>
+
+<table border="0" width="100%">
+  <tr>
+    <td width="5%" valign="top" align="center"><input type="button" value=" 1 " name="cmdPrintDefault"></td>
+    <td width="95%"><font size="2" face="Verdana">Print the grid using the
+      built-in <b>PrintGrid </b>method.</font></td>
+  </tr>
+  <tr>
+    <td width="5%" valign="top" align="center"><input type="button" value=" 2 " name="cmdPrintVSPrinter"></td>
+    <td width="95%"><font size="2" face="Verdana">Generate a preview using the <b>VSPrinter
+      </b>control.</font></td>
+  </tr>
+  <tr>
+    <td width="5%" valign="top" align="center"></td>
+    <td width="95%"><font size="2" face="Verdana">Select the Zoom level for the
+      preview control: </font><select size="1" name="cmbZoom">
+        <option selected>Whole Page</option>
+        <option>Page Width</option>
+        <option>Two Pages</option>
+        <option>Thumbnail</option>
+        <option>100%</option>
+        <option>50%</option>
+        <option>25%</option>
+      </select></td>
+  </tr>
+  <tr>
+    <td width="5%" valign="top" align="center"></td>
+    <td width="95%"><font face="Verdana" size="2">Select the current preview
+      page: </font><input type="button" value=" << " name="cmdFirst"><input type="button" value=" < " name="cmdPrevious"><input type="button" value=" > " name="cmdNext"><input type="button" value=" >> " name="cmdLast"></td>
+  </tr>
+</table>
+
+<p>
+<object classid="clsid:D76D712E-4A96-11D3-BD95-D296DC2DD072" height=422 id=fg style="LEFT: 0px; TOP: 0px" 
+	width=389>
+</object>
+<object classid="clsid:6E84D662-9599-11D2-9367-20CC03C10627" id="vp" width="346" height="421">
+</object>
+</p>
+
+</body>
+</html>

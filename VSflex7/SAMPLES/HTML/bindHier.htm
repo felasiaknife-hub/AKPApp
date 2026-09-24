@@ -1,0 +1,130 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>VSFlexGrid 7</title>
+<SCRIPT ID=clientEventHandlersVBS LANGUAGE=vbscript>
+<!--
+
+Sub Window_OnLoad()
+
+  ' initialize grids
+  With fgCust
+    .FontName = "Verdana"
+    .FontSize = 9
+    .Editable = 2 ' flexEDKbdMouse
+    .BackColorFrozen = &H00E0E0E0&
+    .AllowUserResizing = 1 ' flexResizeColumns
+    .AllowUserFreezing = 3 ' flexFreezeBoth
+    .DataMode = 1 ' fgDMBound
+  End With
+  With fgOrder
+    .FontName = "Verdana"
+    .FontSize = 9
+    .Editable = 2 ' flexEDKbdMouse
+    .BackColorFrozen = &H00E0E0E0&
+    .AllowUserResizing = 1 ' flexResizeColumns
+    .AllowUserFreezing = 3 ' flexFreezeBoth
+    .DataMode = 1 ' fgDMBound
+  End With
+  With fgDetail
+    .FontName = "Verdana"
+    .FontSize = 9
+    .Editable = 2 ' flexEDKbdMouse
+    .BackColorFrozen = &H00E0E0E0&
+    .AllowUserResizing = 1 ' flexResizeColumns
+    .AllowUserFreezing = 3 ' flexFreezeBoth
+    .DataMode = 1 ' fgDMBound
+  End With
+  
+  ' open ADO connection
+  Dim conn
+  Set conn = CreateObject("ADODB.Connection")
+  conn.Provider = "MSDataShape"
+  conn.CursorLocation = 3 ' adUseClient
+  conn.ConnectionString = "dsn=NorthWind;"
+  conn.Open
+
+  ' open main (hierarchical recordset)
+  Dim rsCust
+  Set rsCust = CreateObject("ADODB.Recordset")
+  rsCust.Source = "SHAPE {SELECT * FROM Customers} " & _
+    "APPEND ((SHAPE { SELECT * FROM Orders} " & _
+    "AS Orders " & _
+    "APPEND ({SELECT * FROM [Order Details]} " & _
+    "AS OrderDetails " & _
+    "RELATE OrderID TO OrderID)) " & _
+    "AS Orders RELATE CustomerID TO CustomerID)"
+  rsCust.Open , conn, 3, 3 ' static/optimistic
+      
+  ' get sub-recordsets
+  Dim rsOrder, rsDetail
+  Set rsOrder = rsCust.Fields("Orders").Value
+  Set rsDetail = rsOrder.Fields("OrderDetails").Value
+
+  ' bind to grids
+  Set fgCust.DataSource = rsCust
+  Set fgOrder.DataSource = rsOrder
+  Set fgDetail.DataSource = rsDetail
+
+End Sub
+
+-->
+</SCRIPT>
+</head>
+
+<body>
+
+<p><font size="5" face="Verdana">VSFlexGrid 7.0 HTML Samples<br>
+<strong>Hierarchical ADO Binding</strong></font></p>
+<hr>
+<p><font size="2" face="Verdana">This sample shows how you can bind the <strong>VSFlexGrid</strong>
+control to a hierarchical (shaped) ADO recordset.</font></p>
+<p><font size="2" face="Verdana">Note that this sample requires an ODBC data source named
+NorthWind that is connected to the NorthWind database that ships with Visual Basic. The grids below will
+not contain any data unless you create this data source. The
+sample creates ADODB connection and recordset objects, then connects the to the <b>VSFlexGrid</b>
+control using the grid's <b>DataSource</b> property.</font></p>
+<p><font size="2" face="Verdana">The ADO connection is created using the <b>MSDataShape</b>
+provider, and the recordset <b>Source</b> statement contains a SHAPE SQL command
+that was created using the Visual Basic 6 Data Environment. The main recordset
+contains Customer records. Each Customer record has an &quot;Orders&quot; field
+that is a subordinate recordset. Each order record has a &quot;Details&quot;
+field that is a further subordinate recordset.</font></p>
+<p><font size="2" face="Verdana">The top grid is bound to the <b>Customers </b>recordset.
+The bottom grids are bound to the <b>Orders </b>and <b>Details </b>recordsets.
+Note that as you navigate the <b>Customers </b>grid, the other grids remain
+synchronized and display the information for the currently selected customer and
+order.&nbsp;</font></p>
+<table border="0" width="75%">
+  <tr>
+    <td colspan="2" bgcolor="#FFFFCC"><b><font face="Verdana" size="3">Customers</font></b></td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <object classid="clsid:D76D712E-4A96-11D3-BD95-D296DC2DD072" id="fgCust" width=800 height=150>
+      </object>
+    </td>
+  </tr>
+  <tr>
+    <td bgcolor="#FFFFCC"><b><font face="Verdana" size="3">Orders</font></b></td>
+    <td bgcolor="#FFFFCC"><b><font face="Verdana" size="3">Order
+      Details</font></b></td>
+  </tr>
+  <tr>
+    <td>
+      <object classid="clsid:D76D712E-4A96-11D3-BD95-D296DC2DD072" height=140 id=fgOrder width=500>
+      </object>
+    </td>
+    <td>
+      <object classid="clsid:D76D712E-4A96-11D3-BD95-D296DC2DD072" height=140 id=fgDetail width=300>
+      </object>
+    </td>
+  </tr>
+</table>
+
+</body>
+
+</html>

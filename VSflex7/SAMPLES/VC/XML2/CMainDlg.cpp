@@ -1,0 +1,6 @@
+// CMainDlg.cpp : Implementation of CMainDlg
+#include "stdafx.h"
+#include "CMainDlg.h"
+
+/////////////////////////////////////////////////////////////////////////////
+// CMainDlg

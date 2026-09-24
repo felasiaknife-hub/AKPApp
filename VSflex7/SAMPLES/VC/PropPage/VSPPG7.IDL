@@ -1,0 +1,82 @@
+// VSPPG7.idl : IDL source for VSPPG7.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (VSPPG7.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+//////////////////////////////////////////////////////////////////////////////////////
+//
+// VideoSoft Property Page 7 Type library
+//
+//////////////////////////////////////////////////////////////////////////////////////
+[
+	uuid(2C4CDB41-6162-11D3-BD96-B76E8682527F),
+	version(1.0),
+	helpstring("VSPPG7 1.0 Type Library")
+]
+library VSPPG7Lib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	//////////////////////////////////////////////////////////////////////////////////
+	//
+	// ICategorizeProperties (for design-time browsing)
+	//
+	//////////////////////////////////////////////////////////////////////////////////
+	[
+		object, local,
+		uuid(4d07fc10-f931-11ce-b001-00aa006884e5), 
+		pointer_default(unique) 
+	]
+	interface ICategorizeProperties : IUnknown
+	{
+		typedef [public] int PROPCAT;
+		
+		const int PROPCAT_Nil			= -1;
+		const int PROPCAT_Misc			= -2;
+		const int PROPCAT_Font			= -3;
+		const int PROPCAT_Position		= -4;
+		const int PROPCAT_Appearance	= -5;
+		const int PROPCAT_Behavior		= -6;
+		const int PROPCAT_Data			= -7;
+		const int PROPCAT_List			= -8;
+		const int PROPCAT_Text			= -9;
+		const int PROPCAT_Scale			= -10;
+		const int PROPCAT_DDE			= -11;
+
+		HRESULT MapPropertyToCategory([in] DISPID dispid, [out] PROPCAT* ppropcat);
+		HRESULT GetCategoryName([in] PROPCAT propcat, [in] LCID lcidcat, [out] BSTR* pbstrname);
+	};
+
+	//////////////////////////////////////////////////////////////////////////////////
+	//
+	// VideoSoft generic property page coclass
+	//
+	//////////////////////////////////////////////////////////////////////////////////
+	[
+		uuid(2C4CDB4D-6162-11D3-BD96-B76E8682527F),
+		helpstring("VideoSoft Property Page 7")
+	]
+	coclass VSPPG
+	{
+		interface IUnknown;
+	};
+
+	//////////////////////////////////////////////////////////////////////////////////
+	//
+	// VideoSoft FlexGrid property page coclass
+	//
+	//////////////////////////////////////////////////////////////////////////////////
+	[
+		uuid(2C4CDB4E-6162-11D3-BD96-B76E8682527F),
+		helpstring("VideoSoft FlexGrid Property Page 7")
+	]
+	coclass VSPPGFlex
+	{
+		interface IUnknown;
+	};
+};

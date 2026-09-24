@@ -1,0 +1,6 @@
+// DetailDlg.cpp : Implementation of CDetailDlg
+#include "stdafx.h"
+#include "DetailDlg.h"
+
+/////////////////////////////////////////////////////////////////////////////
+// CDetailDlg

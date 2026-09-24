@@ -1,0 +1,6 @@
+// SelectionDlg.cpp : Implementation of CSelectionDlg
+#include "stdafx.h"
+#include "SelectionDlg.h"
+
+/////////////////////////////////////////////////////////////////////////////
+// CSelectionDlg

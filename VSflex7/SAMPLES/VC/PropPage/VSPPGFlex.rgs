@@ -1,0 +1,23 @@
+HKCR
+{
+	VSPPG7.VSPPGFlex.1 = s 'VideoSoft FlexGrid Property Page'
+	{
+		CLSID = s '{2C4CDB4E-6162-11D3-BD96-B76E8682527F}'
+	}
+	VSPPG7.VSPPGFlex = s 'VideoSoft FlexGrid Property Page'
+	{
+		CLSID = s '{2C4CDB4E-6162-11D3-BD96-B76E8682527F}'
+		CurVer = s 'VSPPG7.VSPPGFlex.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {2C4CDB4E-6162-11D3-BD96-B76E8682527F} = s 'VideoSoft FlexGrid Property Page'
+		{
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+		}
+	}
+}

@@ -1,0 +1,11 @@
+HKCR
+{
+	NoRemove AppID
+	{
+		{9009D2AD-9696-11D3-9A1D-B9F87FBD302B} = s 'TreeNode'
+		'TreeNode.EXE'
+		{
+			val AppID = s {9009D2AD-9696-11D3-9A1D-B9F87FBD302B}
+		}
+	}
+}

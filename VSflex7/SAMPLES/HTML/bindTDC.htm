@@ -1,0 +1,111 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<title>Untitled Normal Page</title>
+</head>
+
+<body bgcolor="#ffffff">
+
+<p><font size="5" face="Verdana">VSFlexGrid 7.0 HTML Samples<br>
+<strong>Binding to the Tabular Data Control (TDC)&nbsp;&nbsp;</strong></font></p>
+
+<hr>
+
+<p><font size="2" face="Verdana">This sample shows how you can bind a <b>VSFlexGrid
+</b>control to a <b>Tabular Data Control (TDC)</b>.</font></p>
+
+<p><font face="Verdana" size="2">The Microsoft TDC ships with IE4. It lets you
+display data that is stored in a delimited text file. The data can optionally be
+filtered or sorted by the browser using the properties and method exposed by the
+control. The control exposes ADO data binding interfaces, so you can use it as a
+data source for the <b>VSFlexGrid </b>control.</font></p>
+
+<p><font face="Verdana" size="2">The </font><font face="Verdana" size="2">TDC is
+useful&nbsp; only for displaying data. Edits </font><font face="Verdana" size="2">made
+to the data are not reflected back to the underlying delimited text file. You
+can, however, save the modified data using the <b>VSFlexGrid</b>'s <b>SaveGrid </b>
+method.&nbsp;</font></p>
+
+<p><font size="2" face="Verdana">The sample shows two grids. The top grid is
+bound to the TDC in the usual way. You can sort the data using the TDC's <b>Sort</b>
+property. You can also edit the grid, but the changes will not be reflected back
+into the underlying delimited text file.</font></p>
+
+<p><font size="2" face="Verdana">The bottom grid is connected to the data in
+&quot;unbound&quot; mode. This means the data is read from the data source when
+the control loads, and then the connection is broken. You can sort this grid
+using the <b>VSFlexGrid</b>'s built-in sorting. Click the column headers to sort
+the grid.</font></p>
+
+<p><font size="2" face="Verdana"><b>Bound Grid</b><br>
+Select a column, then sort it using the TDC <bld>Sort</bold> property: </font>
+<INPUT id=btnSortAsc type=button value="Ascending" onClick=btnSortAsc_Click() name="btnAsc">&nbsp;&nbsp; 
+<INPUT id=btnSortDesc type=button value="Descending" onClick=btnSortDesc_Click() name="btnDesc"><br>
+
+<OBJECT align=baseline classid=clsid:D76D712E-4A96-11d3-BD95-D296DC2DD072 
+height=192 id=fgBound width=578 border = 0>
+</OBJECT>
+</p>
+
+<p><font size="2" face="Verdana"><b>Unbound Grid</b><br>
+Sort columns by clicking on the header row:<br>
+</font>
+<OBJECT classid=clsid:D76D712E-4A96-11d3-BD95-D296DC2DD072 
+height=192 id=fgUnbound width=578 border = 0>
+</OBJECT>
+<br>
+
+<p>
+<OBJECT classid=clsid:333C7BC4-460F-11D0-BC04-0080C7055A83 
+height=0 id=TDC width=0>
+  <PARAM NAME="DataURL" VALUE="db.txt">
+  <PARAM NAME="UseHeader" VALUE="True">
+  <PARAM NAME="FieldDelim" VALUE=";">
+</OBJECT>
+</p>
+
+<script language="VBScript">
+
+Sub btnSortAsc_Click()
+  TDC.Sort = "+" & fgBound.TextMatrix(0, fgBound.Col)
+  TDC.Reset
+  fgBound.DataRefresh
+End Sub
+
+Sub btnSortDesc_Click()
+  TDC.Sort = "-" & fgBound.TextMatrix(0, fgBound.Col)
+  TDC.Reset
+  fgBound.DataRefresh
+End Sub
+
+Sub Window_OnLoad()
+  With fgBound
+    .FontName = "Tahoma"
+    .FontSize = 9
+    .AllowUserResizing = 1
+    .Editable = 2 ' flexEDKbdMouse
+    .DataMode = 1
+    Set .DataSource = TDC.recordset
+    .Row = .Rows - 1
+    .Row = 1
+    .AutoSize 0, .Cols - 1
+  End With
+  With fgUnbound
+    .ExplorerBar = 5 ' sort/move/show
+    .FontName = "Tahoma"
+    .FontSize = 9
+    .AllowUserResizing = 1
+    .Editable = 2 ' flexEDKbdMouse
+    Set .DataSource = TDC.recordset
+    .Row = .Rows - 1
+    .Row = 1
+    .AutoSize 0, .Cols - 1, False, 300
+  End With
+End Sub
+
+</script>
+</body>
+</html>

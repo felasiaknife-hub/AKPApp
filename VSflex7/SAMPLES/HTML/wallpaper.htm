@@ -1,0 +1,126 @@
+<HTML>
+<HEAD>
+<META NAME="GENERATOR" Content="Microsoft FrontPage 4.0">
+<TITLE></TITLE>
+</HEAD>
+<BODY>
+<SCRIPT Language=VBScript>
+
+Function DocumentPath()
+  Dim s, i
+  s = document.url
+  s = Replace(s, "%20", "_")
+  s = Replace(s, "file:", "")
+  s = Replace(s, "/", "\")
+  While Left(s, 1) = "\"
+    s = Mid(s, 2)
+  Wend
+  i = InstrRev(s, "\")   ' trim file name
+  If i > 0 Then s = Left(s, i - 1)
+  DocumentPath = s
+End Function
+
+Sub cmbPic_OnClick()
+
+  ' get picture file name
+  Dim fn
+  fn = DocumentPath & "\" & cmbPic.value & ".jpg"
+
+  ' load picture as grid background
+  On Error Resume Next
+  fg.WallPaper = LoadPicture(fn)
+  fg.BackColor = fg.BackColorFixed
+    
+End Sub
+
+Sub cmbAln_OnClick()
+
+  fg.WallPaperAlignment = cmbAln.SelectedIndex
+    
+End Sub
+
+Sub window_OnLoad()
+
+  ' initialize grid
+  fg.FontName = "Tahoma"
+  fg.FontSize = 9
+  fg.Editable = 2 ' flexEDKbdMouse
+  Dim r, c
+  For r = 1 To fg.Rows - 1
+    For c = 1 To fg.Cols - 1
+      fg.TextMatrix(r, c) = "r" & r & "c" & c
+    Next
+  Next
+End Sub
+
+</SCRIPT>
+
+<p><font size="5" face="Verdana">VSFlexGrid 7.0 HTML Samples<br>
+<strong>Applying WallPaper&nbsp;&nbsp;</strong></font></p>
+
+<hr>
+
+<p><font size="2" face="Verdana">This sample shows how you can apply a graphical
+background to the <strong>VSFlexGrid</strong> 
+using the <b>WallPaper</b> and <b>WallPaperAlignment</b> properties.</font></p>
+
+<p><font size="2" face="Verdana">The sample loads pictures from graphics files
+using VBScript's <b>LoadPicture</b> function. The picture is then assigned to
+the grid's <b>WallPaper </b>property and the picture is displayed as a grid
+background. You can select the picture alignment to make it appear in different
+positions, stretched to fill the control, or tiled.</font></p>
+
+<p><font size="2" face="Verdana"><b>Notes:<br>
+</b>1) The picture does not scroll with the grid contents.<br>
+2) The grid's <b>BackColor</b> is used to paint the background of cells while
+they are being edited, so you should assign the grid's <b>BackColor </b>property
+to a value that is similar to the picture's background.<br>
+3) The pictures used in this sample were &quot;faded&quot; using Microsoft's
+Image Composer so that they don't obscure the grid contents.</font></p>
+
+<P>
+<font face="Verdana" size="2">
+Select a picture to use as wallpaper: 
+<SELECT id=cmbPic name=select1 onclick="cmbPic_OnClick">
+  <OPTION selected value=backgrnd>backgrnd
+  <OPTION value=basalt>basalt
+  <OPTION value=cd>cd
+  <OPTION value=msup>msup
+  <OPTION value=printer>printer
+  <OPTION value=setup>setup
+  <OPTION value=sky>sky
+  <OPTION value=teak>teak
+  <OPTION value=uslg>uslg
+  <OPTION value=worldlg>worldlg
+</SELECT>
+</font>
+</P>
+
+<P>
+<font face="Verdana" size="2">
+Select the wallpaper alignment: 
+<SELECT id=cmbAln name=select2 onclick="cmbAln_OnClick">
+  <OPTION selected>flexPicAlignLeftTop
+  <OPTION>flexPicAlignLeftCenter
+  <OPTION>flexPicAlignLeftBottom
+  <OPTION>flexPicAlignCenterTop
+  <OPTION>flexPicAlignCenterCenter
+  <OPTION>flexPicAlignCenterBottom
+  <OPTION>flexPicAlignRightTop
+  <OPTION>flexPicAlignRightCenter
+  <OPTION>flexPicAlignRightBottom
+  <OPTION>flexPicAlignStretch
+  <OPTION>flexPicAlignTile
+</SELECT>
+</font>
+</P>
+
+<P>
+<OBJECT classid=clsid:D76D712E-4A96-11D3-BD95-D296DC2DD072 height=350 id=fg width=600>
+</OBJECT>
+
+</P>
+
+
+</BODY>
+</HTML>

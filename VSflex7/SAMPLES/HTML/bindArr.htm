@@ -1,0 +1,92 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<title></title>
+<SCRIPT ID=clientEventHandlersVBS LANGUAGE=vbscript>
+<!--
+
+Dim g_Arr(5, 20)
+Sub window_onload
+
+  ' initialize grid
+  fg.FontName = "Verdana"
+  fg.FontSize = 9
+  fg.Editable = 2 ' flexEDKbdMouse
+  
+  ' initialize array
+  Dim x, y
+  For x = 0 To 5
+    For y = 0 To 20
+      g_Arr(x, y) = "r" & y & "c" & x
+    Next
+  Next
+  
+  ' bind using default mapping
+  fg.BindToArray g_Arr
+  
+End Sub
+
+' bind using default mapping
+Sub cmdBindDefault_onclick
+  fg.BindToArray g_Arr
+End Sub
+
+' bind using transposed mapping
+Sub cmdBindTransposed_onclick
+  fg.BindToArray g_Arr, 0, 1
+End Sub
+
+-->
+</SCRIPT>
+</head>
+
+<body>
+
+<p><font size="5" face="Verdana">VSFlexGrid 7.0 HTML Samples<br>
+<strong>Binding to an Array</strong></font></p>
+
+<hr>
+
+<p><font size="2" face="Verdana">This sample shows how you can
+bind the <strong>VSFlexGrid</strong> to an array using VBScript.</font></p>
+
+<p><font size="2" face="Verdana">When binding the grid to an array, you have the
+option of specifying which array dimensions map into the grid's rows and
+columns. By default, the first array dimension maps into grid columns, and the
+second maps into grid rows. This is the convention used by ADO when returning
+recordsets as automation arrays. This sample shows how to perform the binding
+using the default dimension mapping and how to perform a transposed mapping,
+where the first array dimension maps into grid rows and the second into grid
+columns.&nbsp;</font></p>
+
+<p><font size="2" face="Verdana"><b>Notes:<br>
+</b>1) The data
+you see on the grid comes from a <b> VBSript</b> array variable that is
+populated when the window loads.<br>
+2) The grid's dimensions are set automatically, based on the size of the array.<br>
+3) The grid is editable: changes made to the grid are automatically saved back
+into the array.</font></p>
+
+<table border="0" width="100%">
+  <tr>
+    <td width="5%" valign="top" align="center"><input type="button" value=" 1 " name="cmdBindDefault"></td>
+    <td width="95%"><font size="2" face="Verdana">Bind using default mapping:
+      the first array dimension maps into grid columns, the second into rows.</font></td>
+  </tr>
+  <tr>
+    <td width="5%" valign="top" align="center"><input type="button" value=" 2 " name="cmdBindTransposed"></td>
+    <td width="95%"><font size="2" face="Verdana">Bind using transposed mapping:
+      the first array dimension maps into grid rows, the second into columns.</font></td>
+  </tr>
+</table>
+
+<p>
+<OBJECT classid="clsid:D76D712E-4A96-11D3-BD95-D296DC2DD072" height=192 id=fg style="LEFT: 0px; TOP: 0px" 
+	width=694>
+</p>
+
+</body>
+</html>

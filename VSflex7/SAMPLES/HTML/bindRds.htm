@@ -1,0 +1,70 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<title>Untitled Normal Page</title>
+</head>
+
+<body bgcolor="#ffffff">
+
+<p><font size="5" face="Verdana">VSFlexGrid 7.0 HTML Samples<br>
+<strong>Binding to an RDS data source&nbsp;&nbsp;</strong></font></p>
+
+<hr>
+
+<p><font size="2" face="Verdana">This sample shows how you can bind a <b>VSFlexGrid
+</b>control to an <b>RDS</b> (Remote Data Services) data source.</font></p>
+
+<p><font face="Verdana" size="2">The sample creates an <b>RDS.DataControl</b> object
+and sets its <b>CONNECT</b> and <b>SQL</b> properties to display the 'Employees' 
+table from the 'NorthWind' database. Then it creates a <b>VSFlexGrid</b> control 
+and binds it to the data source.</font></p>
+
+<p><font face="Verdana" size="2">You may edit the values by typing on the grid. 
+When you are ready to commit the changes, click the "Submit Changes" button to 
+write the new information to the underlying database. If you change your mind, 
+click the "Cancel Changes" button to restore the original data from the database.
+</font></p>
+
+<!-- RDS.DataControl object -->
+<OBJECT classid=clsid:BD96C556-65A3-11D0-983A-00C04FC29E33
+height=1 width=1 id=adc>
+<PARAM name=SQL value="select * from Employees">
+<PARAM name=SERVER value="">
+<PARAM name=CONNECT value="dsn=NorthWind">
+</OBJECT>
+
+<!-- VSFlexGrid object -->
+<OBJECT classid=clsid:D76D712E-4A96-11d3-BD95-D296DC2DD072 
+height=192 id=fg width=578 border = 0>
+</OBJECT>
+
+<INPUT type=BUTTON name="SubmitChange" value="Submit Changes">
+<INPUT type=BUTTON name="CancelChange" value="Cancel Changes">
+<BR>
+
+<script language="VBScript">
+
+Sub Window_OnLoad()
+	with fg
+		.FontName = "Tahoma"
+		.FontSize = 8
+		.Editable = True
+		.AllowUserResizing = 3
+		.DataMode = 1
+		Set .DataSource = adc
+	end with
+End Sub
+
+Sub SubmitChange_OnClick
+	adc.SubmitChanges   
+End Sub
+
+Sub CancelChange_OnClick
+	adc.CancelUpdate
+End Sub
+</script>
+</body>
+</html>

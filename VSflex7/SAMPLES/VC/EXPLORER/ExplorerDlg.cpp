@@ -1,0 +1,6 @@
+// ExplorerDlg.cpp : Implementation of CExplorerDlg
+#include "stdafx.h"
+#include "ExplorerDlg.h"
+
+/////////////////////////////////////////////////////////////////////////////
+// CExplorerDlg

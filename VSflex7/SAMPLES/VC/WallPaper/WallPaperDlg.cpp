@@ -1,0 +1,6 @@
+// WallPaperDlg.cpp : Implementation of CWallPaperDlg
+#include "stdafx.h"
+#include "WallPaperDlg.h"
+
+/////////////////////////////////////////////////////////////////////////////
+// CWallPaperDlg

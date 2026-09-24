@@ -1,0 +1,174 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "winres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""winres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "1 TYPELIB ""VSPPG7.tlb""\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,6
+ PRODUCTVERSION 1,0,0,6
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x2L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "Comments", "\0"
+            VALUE "CompanyName", "\0"
+            VALUE "FileDescription", "VSPPG7 VideoSoft Property Pages\0"
+            VALUE "FileVersion", "1, 0, 0, 6\0"
+            VALUE "InternalName", "VSPPG7\0"
+            VALUE "LegalCopyright", "Copyright 2000 VideoSoft\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OLESelfRegister", "\0"
+            VALUE "OriginalFilename", "VSPPG7.DLL\0"
+            VALUE "PrivateBuild", "\0"
+            VALUE "ProductName", "VSPPG7 VideoSoft Property Pages\0"
+            VALUE "ProductVersion", "1, 0, 0, 6\0"
+            VALUE "SpecialBuild", "\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// REGISTRY
+//
+
+IDR_VSPPG               REGISTRY DISCARDABLE    "VSPPG.rgs"
+IDR_VSPPGFLEX           REGISTRY DISCARDABLE    "VSPPGFlex.rgs"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_VSPPG DIALOG DISCARDABLE  0, 0, 271, 139
+STYLE WS_CHILD | WS_CLIPCHILDREN
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "Property Description",IDC_HELPTEXT,29,114,219,18
+    CONTROL         "",IDC_BYCAT,"Button",BS_AUTOCHECKBOX | BS_ICON | 
+                    BS_PUSHLIKE,7,114,15,14
+END
+
+IDD_VSPPGFLEX DIALOG DISCARDABLE  0, 0, 271, 139
+STYLE WS_CHILD | WS_CLIPCHILDREN
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "",IDC_CLEAR,8,113,15,14,BS_ICON | NOT WS_TABSTOP
+    LTEXT           "Help text",IDC_HELPTEXT,59,114,190,16
+    PUSHBUTTON      "",IDC_COLINS,24,113,15,8,BS_ICON | NOT WS_TABSTOP
+    PUSHBUTTON      "",IDC_COLDEL,24,121,15,8,BS_ICON | NOT WS_TABSTOP
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_BYCAT               ICON    DISCARDABLE     "icon1.ico"
+IDI_CLEAR               ICON    DISCARDABLE     "bycat1.ico"
+IDI_DEL                 ICON    DISCARDABLE     "del.ico"
+IDI_INS                 ICON    DISCARDABLE     "ins.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_PROJNAME            "VSPPG7"
+    IDS_TITLEVSPPG          "Browse"
+    IDS_DOCSTRINGVSPPG      "Browse Properties"
+    IDS_TITLEVSPPGFlex      "Preview"
+    IDS_DOCSTRINGVSPPGFlex  "Preview Properties"
+    IDS_HELPFILE            "VSFlex7.hlp"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+1 TYPELIB "VSPPG7.tlb"
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
+
+
+

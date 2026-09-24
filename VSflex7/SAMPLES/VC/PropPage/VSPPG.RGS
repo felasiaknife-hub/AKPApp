@@ -1,0 +1,23 @@
+HKCR
+{
+	VSPPG7.VSPPG.1 = s 'VideoSoft Property Page'
+	{
+		CLSID = s '{2C4CDB4D-6162-11D3-BD96-B76E8682527F}'
+	}
+	VSPPG7.VSPPG = s 'VideoSoft Property Page'
+	{
+		CLSID = s '{2C4CDB4D-6162-11D3-BD96-B76E8682527F}'
+		CurVer = s 'VSPPG7.VSPPG.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {2C4CDB4D-6162-11D3-BD96-B76E8682527F} = s 'VideoSoft Property Page'
+		{
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+		}
+	}
+}

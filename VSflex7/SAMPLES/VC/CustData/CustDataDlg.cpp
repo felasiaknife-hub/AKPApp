@@ -1,0 +1,6 @@
+// CustDataDlg.cpp : Implementation of CCustDataDlg
+#include "stdafx.h"
+#include "CustDataDlg.h"
+
+/////////////////////////////////////////////////////////////////////////////
+// CCustDataDlg
